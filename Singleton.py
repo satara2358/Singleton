@@ -23,18 +23,15 @@ print(obj1 is obj2)
 # Se usaría para verificar que exista una sola conexión a la base de datos
 
 import sqlite3
-
 # la clase creada debe heredarse de Singleton || solo existe una instancia de la clase db1 y db2 son instancias de la clase DatabaseConnection
 class DatabaseConnection(Singleton):
   connection = None # se inicializa cuando se usa el método connect()
-  
   def connect(self):
   # def __init__(self):
     # super() asegura que se llama al constructor de la clase base Singleton
     super().__init__()
     if not self.connection:
       self.connection = sqlite3.connect('demo_db.db')
-      
   def execute_q(self, query):
     cursor = self.connection.cursor()
     cursor.execute(query)
