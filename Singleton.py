@@ -36,7 +36,7 @@ class DatabaseConnection(Singleton):
     cursor = self.connection.cursor()
     cursor.execute(query)
     
-    # guardamos los cambios en la base de datos
+    # guardamos los cambios en la base de datos  como demo
     self.connection.commit()
     
   def close(self):
